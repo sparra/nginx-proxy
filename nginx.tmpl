@@ -31,9 +31,12 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_set_header X-Forwarded-Proto $proxy_x_forwarded_proto;
 
+client_max_body_size 100m;
+
 server {
 	listen 80;
-	server_name _; # This is just an invalid value which will never trigger on a real hostname.
+	client_max_body_size 100m;
+        server_name _; # This is just an invalid value which will never trigger on a real hostname.
 	return 503;
 }
 

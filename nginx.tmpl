@@ -53,6 +53,7 @@ client_max_body_size 1000m;
 server {
 	listen 80;
 	client_max_body_size 1000m;
+        fastcgi_read_timeout 900;
         server_name _; # This is just an invalid value which will never trigger on a real hostname.
 	return 503;
 }
